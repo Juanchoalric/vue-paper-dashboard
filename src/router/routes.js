@@ -3,30 +3,30 @@ import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 import NotFound from "@/pages/NotFoundPage.vue";
 
 // Admin pages
-import Maps from "@/pages/Maps.vue";
-import TableList from "@/pages/TableList.vue";
-import Typography from "@/pages/Typography.vue";
+import Inicio from "@/pages/Inicio.vue";
+import Reportes from "@/pages/Reportes.vue";
+import Nosotros from "@/pages/Nosotros.vue";
 
 const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    redirect: "/maps",
+    redirect: "/inicio",
     children: [
       {
-        path: "maps",
+        path: "inicio",
         name: "INICIO",
-        component: Maps
+        component: Inicio
       },
       {
-        path: "table-list",
+        path: "reportes",
         name: "REPORTES",
-        component: TableList
+        component: Reportes
       },
       {
-        path: "typography",
+        path: "nosotros",
         name: "SOBRE NOSOTROS",
-        component: Typography
+        component: Nosotros
       }
     ]
   },

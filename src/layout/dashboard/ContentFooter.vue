@@ -4,7 +4,7 @@
       <nav>
         <ul>
           <li>
-            <router-link :to="{path:'/admin'}">STOPFIRE - Alerta de incendios forestales</router-link>
+            <router-link :to="{path:'/admin'}">STOPFIRE - Alerta de incendios forestales. 2022</router-link>
           </li>
         </ul>
       </nav>      

@@ -2,9 +2,9 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/maps" name="Inicio" icon="ti-home"/>
-        <sidebar-link to="/table-list" name="Reportes" icon="ti-alert"/>
-        <sidebar-link to="/typography" name="Sobre nosotros" icon="ti-user"/>
+        <sidebar-link to="/inicio" name="Inicio" icon="ti-home"/>
+        <sidebar-link to="/reportes" name="Reportes" icon="ti-alert"/>
+        <sidebar-link to="/nosotros" name="Sobre nosotros" icon="ti-user"/>
         </template>      
     </side-bar>
     <div class="main-panel">

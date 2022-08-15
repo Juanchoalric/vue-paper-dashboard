@@ -31,10 +31,31 @@ export default {
    components: {
     StatsCard
   },
-  mounted() {
-    var camara1 = new window.google.maps.LatLng(-27.983181, -57.106404);
-    var camara2 = new window.google.maps.LatLng(-27.815503, -56.790567);
+  mounted() {    
     var centro = new window.google.maps.LatLng(-27.896817, -56.930684);
+
+    var locations = [
+        {
+          lat: -27.983181,
+          lng: -57.106404,
+          label: 'Camara 1'
+        },
+        {
+          lat: -27.815503,
+          lng: -56.790567,
+          label: 'Camara 2'
+        },
+        {
+          lat: -27.815503,
+          lng: -56.790567,
+          label: 'Camara 2'
+        },
+        {
+          lat: -27.818493,
+          lng: -57.207914,
+          label: 'Camara 3'
+        },
+    ];
 
     var mapOptions = {
       zoom: 10,
@@ -46,14 +67,20 @@ export default {
       document.getElementById("map"),
       mapOptions
     );
-
-    var marker = new window.google.maps.Marker({
-      position: camara1,
-      title: "Camara 1"
-    });
-
+    
     // To add the marker to the map, call setMap();
-    marker.setMap(map);
+    var markers = [];
+    
+    for (let i = 0; i < locations.length; i++) {
+
+        markers[i] = new window.google.maps.Marker
+        ({
+          position: locations[i],
+          title: locations[i].label
+        });
+        
+        markers[i].setMap(map);
+    } 
     
   },
   data(){

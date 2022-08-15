@@ -64,46 +64,61 @@
             </stats-card>
           </div>
       </div>
+
+      <!-- Mapa -->
+      <card class="card-map" title="Incendios detectados">
+        <div class="map">
+          <div id="map"></div>
+          
+        </div>
+      </card>
+
+
     </div> 
 </template>
 
 <script>
 import { PaperTable } from "@/components";
 import { StatsCard } from "@/components/index";
-const tableColumns = ["Alerta", "Fecha", "Zona", "Tipo", "Foto", "Falsa"];
+const tableColumns = ["id", "Alerta", "Fecha", "Zona", "Tipo", "Foto", "Falsa"];
 const tableData = [
   {
-    alerta: 1,
-    fecha: "Dakota Rice",
-    zona: "$36.738",
-    tipo: "Niger",
-    foto: "Oud-Turnhout",
-    falsa: 1
+    id: 1,
+    alerta: "Camara 1",
+    fecha: "2019-09-18T01:55:19",
+    zona: "Zona 1",
+    tipo: "Punto fijo",
+    foto: "Ver foto",
+    falsa: true
   },
   {
-    alerta: 2,
-    fecha: "Minerva Hooper",
-    zona: "$23,789",
-    tipo: "Curaçao",
-    foto: "Sinaai-Waas",
-    falsa: 0
+    id: 2,
+    alerta: "Camara 1",
+    fecha: "2019-09-18T01:55:19",
+    zona: "Zona 1",
+    tipo: "Punto fijo",
+    foto: "Ver foto",
+    falsa: false
   },
   {
-    alerta: 3,
-    fecha: "Sage Rodriguez",
-    zona: "$56,142",
-    tipo: "Netherlands",
-    foto: "Baileux",
-    falsa: 0
+    id: 3,
+    alerta: "Camara 2",
+    fecha: "2019-09-18T01:55:19",
+    zona: "Zona 2",
+    tipo: "Punto fijo",
+    foto: "Ver foto",
+    falsa: false
   },
   {
-    alerta: 4,
-    fecha: "Philip Chaney",
-    zona: "$38,735",
-    tipo: "Korea, South",
-    foto: "Overland Park",
-    falsa: 0
+    id: 4,
+    alerta: "Patrullero",
+    fecha: "2019-09-18T01:55:19",
+    zona: "-27.896817, -56.930684",
+    tipo: "Punto móvil",
+    foto: "Ver foto",
+    falsa: false
   }
+
 ];
 
 export default {
@@ -111,6 +126,7 @@ export default {
     PaperTable,
     StatsCard
   },
+
   data() {
     return {
       table1: {
@@ -129,17 +145,59 @@ export default {
         {
           type: "warning",
           title: "Falsas alarmas",
-          icon: "ti-alert",
+          icon: "ti-na",
           value: "1",
         },
         {
           type: "danger",
           title: "Incendios reales",
-          icon: "ti-check-box",
+          icon: "ti-alert",
           value: "4",
         }
       ],     
     };
+  },
+  
+  mounted() {
+    var centro = new window.google.maps.LatLng(-27.896817, -56.930684);
+
+    var locations = [
+        {
+          lat: -27.983181,
+          lng: -57.106404,
+          label: 'Camara 1'
+        },
+        {
+          lat: -27.815503,
+          lng: -56.790567,
+          label: 'Camara 2'
+        },
+    ];
+
+    var mapOptions = {
+      zoom: 10,
+      center: centro,
+      scrollwheel: true, // to disable de scroll over the map
+    };
+
+    var map = new window.google.maps.Map(
+      document.getElementById("map"),
+      mapOptions
+    );
+    
+    // To add the marker to the map, call setMap();
+    var markers = [];
+    
+    for (let i = 0; i < locations.length; i++) {
+
+        markers[i] = new window.google.maps.Marker
+        ({
+          position: locations[i],
+          title: locations[i].label
+        });
+        
+        markers[i].setMap(map);
+    } 
   }
 };
 </script>
