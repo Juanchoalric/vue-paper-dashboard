@@ -1,7 +1,8 @@
 <template>
   <div class="sidebar"
        :data-background-color="backgroundColor"
-       :data-active-color="activeColor">
+       :data-active-color="activeColor"
+       >
     <!--
             Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black | darkblue"
             Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
@@ -11,7 +12,7 @@
       <div class="logo">
         <a href="#" class="simple-text">
             <div class="logo-img">
-                <img src="@/assets/img/vue-logo.png" alt="">
+                <img src="@/assets/img/logo2.png" alt="">
             </div>
           {{title}}
         </a>
@@ -43,13 +44,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Paper Dashboard"
+      default: "STOPFIRE"
     },
     backgroundColor: {
       type: String,
       default: "black",
       validator: value => {
-        let acceptedValues = ["white", "black", "darkblue"];
+        let acceptedValues = ["white", "black", "darkblue",];
         return acceptedValues.indexOf(value) !== -1;
       }
     },
