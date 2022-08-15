@@ -35,13 +35,12 @@ export default {
     var camara1 = new window.google.maps.LatLng(-27.983181, -57.106404);
     var camara2 = new window.google.maps.LatLng(-27.815503, -56.790567);
     var centro = new window.google.maps.LatLng(-27.896817, -56.930684);
-    
     var mapOptions = {
       zoom: 10,
       center: centro,
       scrollwheel: true, // to disable de scroll over the map
+      
     };
-
     var map = new window.google.maps.Map(
       document.getElementById("map"),
       mapOptions

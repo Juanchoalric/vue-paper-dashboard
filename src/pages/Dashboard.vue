@@ -72,6 +72,7 @@
 
   </div>
 </template>
+
 <script>
 import { StatsCard, ChartCard } from "@/components/index";
 import Chartist from 'chartist';
@@ -192,5 +193,6 @@ export default {
   }
 };
 </script>
+
 <style>
 </style>
